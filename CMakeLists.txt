@@ -1,4 +1,11 @@
-cmake_minimum_required(VERSION 3.18)
-project(math)
-add_executable(test test/test.cpp src/Vector.h)
-target_include_directories(test PUBLIC ${CMAKE_SOURCE_DIR}/src)
+set(LIBRARY_NAME math)
+
+file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
+  ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+)
+
+add_library(${LIBRARY_NAME} STATIC ${SRC_FILES})
+
+target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/includes)
+
+target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Werror)

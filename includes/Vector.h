@@ -4,5 +4,7 @@ namespace Math
     {
     public:
         float x;
+
+        float GetX();
     };
 }
