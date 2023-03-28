@@ -19,10 +19,10 @@ namespace Math
 		Vector3& operator /=(const float _scalar);
 		friend Vector3 operator *(const float _scalar, const Vector3& _vector);
 		friend Vector3 operator /(const float _scalar, const Vector3& _vector);
-	};
 
-	float Vector3LengthSquared(const Vector3& _vector);
-	float Vector3Dot(const Vector3& _vector1, const Vector3& _vector2);
-	Vector3& Vector3Normalize(Vector3* _vector);
-	Vector3 Vector3Cross(const Vector3& _vector1, const Vector3& _vector2);
+		float Vector3LengthSquared(const Vector3& _vector);
+		float Vector3Dot(const Vector3& _vector1, const Vector3& _vector2);
+		Vector3& Vector3Normalize(Vector3* _vector);
+		Vector3 Vector3Cross(const Vector3& _vector1, const Vector3& _vector2);
+	};
 }
