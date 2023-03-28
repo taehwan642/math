@@ -64,9 +64,9 @@ Vector3 Math::operator/(const float _scalar, const Vector3& _vector)
 	return vector / _scalar;
 }
 
-float Math::Vector3Length(const Vector3& _vector)
+float Math::Vector3LengthSquared(const Vector3& _vector)
 {
-	return sqrt(_vector.x * _vector.x + _vector.y * _vector.y + _vector.z * _vector.z);
+	return _vector.x * _vector.x + _vector.y * _vector.y + _vector.z * _vector.z;
 }
 
 float Math::Vector3Dot(const Vector3& _vector1, const Vector3& _vector2)
@@ -76,7 +76,7 @@ float Math::Vector3Dot(const Vector3& _vector1, const Vector3& _vector2)
 
 Vector3& Math::Vector3Normalize(Vector3* _vector)
 {
-	*_vector /= Vector3Length(*_vector);
+	*_vector /= Vector3LengthSquared(*_vector);
 	return *_vector;
 }
 
