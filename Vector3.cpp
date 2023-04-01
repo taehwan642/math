@@ -64,26 +64,25 @@ Vector3 Math::operator/(const float _scalar, const Vector3& _vector)
 	return vector / _scalar;
 }
 
-float Vector3::LengthSquared(const Vector3& _vector)
+float Vector3::LengthSquared()
 {
-	return _vector.x * _vector.x + _vector.y * _vector.y + _vector.z * _vector.z;
+	return this->x * this->x + this->y * this->y + this->z * this->z;
 }
 
-float Vector3::Dot(const Vector3& _vector1, const Vector3& _vector2)
+float Vector3::Dot(const Vector3& _vector)
 {
-	return (_vector1.x * _vector2.x) + (_vector1.y * _vector2.y) + (_vector1.z + _vector2.z);
+	return (this->x * _vector.x) + (this->y * _vector.y) + (this->z + _vector.z);
 }
 
-Vector3& Vector3::Normalize(Vector3* _vector)
+void Vector3::Normalize()
 {
-	*_vector /= Vector3LengthSquared(*_vector);
-	return *_vector;
+	*this /= LengthSquared();
 }
 
-Vector3 Vector3::Cross(const Vector3& _vector1, const Vector3& _vector2)
+Vector3 Vector3::Cross(const Vector3& _vector)
 {
-	float x = (_vector1.y * _vector2.z) - (_vector1.z * _vector2.y);
-	float y = (_vector1.z * _vector2.x) - (_vector1.x * _vector2.z);
-	float z = (_vector1.x * _vector2.y) - (_vector1.y * _vector2.x);
+	float x = (this->y * _vector.z) - (this->z * _vector.y);
+	float y = (this->z * _vector.x) - (this->x * _vector.z);
+	float z = (this->x * _vector.y) - (this->y * _vector.x);
 	return Vector3(x, y, z);
 }

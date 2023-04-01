@@ -20,9 +20,9 @@ namespace Math
 		friend Vector3 operator *(const float _scalar, const Vector3& _vector);
 		friend Vector3 operator /(const float _scalar, const Vector3& _vector);
 
-		float LengthSquared(const Vector3& _vector);
-		float Dot(const Vector3& _vector1, const Vector3& _vector2);
-		Vector3& Normalize(Vector3* _vector);
-		Vector3 Cross(const Vector3& _vector1, const Vector3& _vector2);
+		float LengthSquared();
+		float Dot(const Vector3& _vector);
+		void Normalize();
+		Vector3 Cross(const Vector3& _vector);
 	};
 }
