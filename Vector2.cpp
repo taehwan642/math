@@ -3,6 +3,12 @@
 
 Math::Vector2::Vector2(float x, float y)
 {
+	this->x = 0.0f;
+	this->y = 0.0f;
+}
+
+Math::Vector2::Vector2(float x, float y)
+{
 	this->x = x;
 	this->y = y;
 }
@@ -43,24 +49,18 @@ Math::Vector2& Math::Vector2::operator/=(const float _scalar)
 	return *this;
 }
 
-float Math::Vector2::Dot(const Vector2& v1, const Vector2& v2)
+float Vector2::LengthSquared()
 {
-	return v1.x * v2.x + v1.y * v2.y;
+	return this->x * this->x + this->y * this->y;
 }
 
-float Math::Vector2::Length(const Vector2& v)
+float Vector2::Dot(const Vector2& _vector)
 {
-	return sqrt(v.x * v.x + v.y * v.y);
+	return (this->x * _vector.x) + (this->y * _vector.y);
 }
 
-float Math::Vector2::LengthSq(const Vector2& v)
+void Vector2::Normalize()
 {
-	return v.x * v.x + v.y * v.y;
-}
-
-Math::Vector2 Math::Vector2::Normalize(const Vector2& v)
-{
-	float len = Length(v);
-	return Vector2(v.x / len, v.y / len);
+	*this /= LengthSquared();
 }
 
