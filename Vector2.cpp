@@ -1,39 +1,40 @@
 #include "Vector2.h"
-#include <cmath>
 
-Math::Vector2::Vector2(float x, float y)
+using namespace Math;
+
+Vector2::Vector2(float x, float y)
 {
 	this->x = 0.0f;
 	this->y = 0.0f;
 }
 
-Math::Vector2::Vector2(float x, float y)
+Vector2::Vector2(float x, float y)
 {
 	this->x = x;
 	this->y = y;
 }
 
-Math::Vector2 Math::Vector2::operator+(const Vector2& _vector)
+Vector2 Vector2::operator+(const Vector2& _vector)
 {
 	return Vector2(this->x + _vector.x, this->y + _vector.y);
 }
 
-Math::Vector2 Math::Vector2::operator-(const Vector2& _vector)
+Vector2 Vector2::operator-(const Vector2& _vector)
 {
 	return Vector2(this->x - _vector.x, this->y - _vector.y);
 }
 
-Math::Vector2 Math::Vector2::operator*(const float _scalar)
+Vector2 Vector2::operator*(const float _scalar)
 {
 	return Vector2(this->x * _scalar, this->y * _scalar);
 }
 
-Math::Vector2 Math::Vector2::operator/(const float _scalar)
+Vector2 Vector2::operator/(const float _scalar)
 {
 	return Vector2(this->x / _scalar, this->y / _scalar);
 }
 
-Math::Vector2& Math::Vector2::operator*=(const float _scalar)
+Vector2& Vector2::operator*=(const float _scalar)
 {
 	this->x *= _scalar;
 	this->y *= _scalar;
@@ -41,7 +42,7 @@ Math::Vector2& Math::Vector2::operator*=(const float _scalar)
 	return *this;
 }
 
-Math::Vector2& Math::Vector2::operator/=(const float _scalar)
+Vector2& Vector2::operator/=(const float _scalar)
 {
 	this->x /= _scalar;
 	this->y /= _scalar;
