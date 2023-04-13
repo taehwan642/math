@@ -15,6 +15,7 @@ jobs:
         with:
           style: file
           files-changed-only: false
+          extra-args: "-xc++ -std=c++17"
 
       - name: Fail
         if: steps.linter.outputs.checks-failed != 0
