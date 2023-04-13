@@ -1,11 +1,12 @@
 #include "Vector2.h"
+#include <cmath>
 
 using namespace Math;
 
-Vector2::Vector2(float x, float y)
+Vector2::Vector2()
 {
-	this->x = 0.0f;
-	this->y = 0.0f;
+	x = 0;
+	y = 0;
 }
 
 Vector2::Vector2(float x, float y)
@@ -48,6 +49,11 @@ Vector2& Vector2::operator/=(const float _scalar)
 	this->y /= _scalar;
 
 	return *this;
+}
+
+float Math::Vector2::Length()
+{
+    return sqrt(x * x + y * y);
 }
 
 float Vector2::LengthSquared()

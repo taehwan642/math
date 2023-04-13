@@ -1,3 +1,5 @@
+#pragma once
+
 namespace Math
 {
 	class Vector3
@@ -21,6 +23,7 @@ namespace Math
 		friend Vector3 operator /(const float _scalar, const Vector3& _vector);
 
 		float LengthSquared();
+		float Length();
 		float Dot(const Vector3& _vector);
 		void Normalize();
 		Vector3 Cross(const Vector3& _vector);

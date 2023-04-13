@@ -1,4 +1,5 @@
 #include "Vector3.h"
+#include <cmath>
 
 using namespace Math;
 
@@ -62,6 +63,11 @@ Vector3 Math::operator/(const float _scalar, const Vector3& _vector)
 {
 	Vector3 vector = _vector;
 	return vector / _scalar;
+}
+
+float Math::Vector3::Length()
+{
+    return sqrt(x * x + y * y + z * z);
 }
 
 float Vector3::LengthSquared()

@@ -20,6 +20,7 @@ namespace Math
 		Vector2& operator /=(const float _scalar);
 
 		float LengthSquared();
+		float Length();
 		float Dot(const Vector2& vector);
 		void Normalize();
 	};
