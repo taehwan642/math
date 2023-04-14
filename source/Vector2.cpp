@@ -15,27 +15,27 @@ Vector2::Vector2(float x, float y)
 	this->y = y;
 }
 
-Vector2 Vector2::operator+(const Vector2& _vector)
+auto Vector2::operator+(const Vector2& _vector) -> const Vector2
 {
 	return Vector2(this->x + _vector.x, this->y + _vector.y);
 }
 
-Vector2 Vector2::operator-(const Vector2& _vector)
+auto Vector2::operator-(const Vector2& _vector) -> const Vector2
 {
 	return Vector2(this->x - _vector.x, this->y - _vector.y);
 }
 
-Vector2 Vector2::operator*(const float _scalar)
+auto Vector2::operator*(const float _scalar) -> const Vector2
 {
 	return Vector2(this->x * _scalar, this->y * _scalar);
 }
 
-Vector2 Vector2::operator/(const float _scalar)
+auto Vector2::operator/(const float _scalar) -> const Vector2
 {
 	return Vector2(this->x / _scalar, this->y / _scalar);
 }
 
-Vector2& Vector2::operator*=(const float _scalar)
+auto Vector2::operator*=(const float _scalar) -> Vector2&
 {
 	this->x *= _scalar;
 	this->y *= _scalar;
@@ -43,7 +43,7 @@ Vector2& Vector2::operator*=(const float _scalar)
 	return *this;
 }
 
-Vector2& Vector2::operator/=(const float _scalar)
+auto Vector2::operator/=(const float _scalar) -> Vector2&
 {
 	this->x /= _scalar;
 	this->y /= _scalar;
