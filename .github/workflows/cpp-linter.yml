@@ -13,7 +13,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          style: file
+          style: Google
           files-changed-only: false
           extra-args: "-xc++ -std=c++17 -I${{github.workspace}}/header"
 
