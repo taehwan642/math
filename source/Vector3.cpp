@@ -27,17 +27,17 @@ auto Vector3::operator-(const Vector3& _vector) const -> Vector3
 	return Vector3(this->x - _vector.x, this->y - _vector.y, this->z - _vector.z);
 }
 
-auto Vector3::operator*(const float _scalar) const -> Vector3
+auto Vector3::operator*(float _scalar) const -> Vector3
 {
 	return Vector3(this->x * _scalar, this->y * _scalar, this->z * _scalar);
 }
 
-auto Vector3::operator/(const float _scalar) const -> Vector3
+auto Vector3::operator/(float _scalar) const -> Vector3
 {
 	return Vector3(this->x / _scalar, this->y / _scalar, this->z / _scalar);
 }
 
-auto Vector3::operator*=(const float _scalar) -> Vector3&
+auto Vector3::operator*=(float _scalar) -> Vector3&
 {
 	this->x *= _scalar;
 	this->y *= _scalar;
@@ -45,7 +45,7 @@ auto Vector3::operator*=(const float _scalar) -> Vector3&
 	return *this;
 }
 
-auto Vector3::operator/=(const float _scalar) -> Vector3&
+auto Vector3::operator/=(float _scalar) -> Vector3&
 {
 	this->x /= _scalar;
 	this->y /= _scalar;

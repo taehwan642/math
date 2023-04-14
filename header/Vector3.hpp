@@ -5,9 +5,9 @@ namespace Math
 	class Vector3
 	{
 	public:
-		float x = 0.0f;
-		float y = 0.0f;
-		float z = 0.0f;
+		float x = 0.0F;
+		float y = 0.0F;
+		float z = 0.0F;
 
 		Vector3();
 		Vector3(float _x, float _y, float _z);
@@ -15,10 +15,10 @@ namespace Math
 		// Operator
 		auto operator +(const Vector3& _vector) const -> Vector3;
 		auto operator -(const Vector3& _vector) const -> Vector3;
-		auto operator *(const float _scalar) const -> Vector3;
-		auto operator /(const float _scalar) const -> Vector3;
-		auto operator *=(const float _scalar) -> Vector3&;
-		auto operator /=(const float _scalar) -> Vector3&;
+		auto operator *(float _scalar) const -> Vector3;
+		auto operator /(float _scalar) const -> Vector3;
+		auto operator *=(float _scalar) -> Vector3&;
+		auto operator /=(float _scalar) -> Vector3&;
 
 		auto LengthSquared() const -> float;
 		auto Length() const -> float;
