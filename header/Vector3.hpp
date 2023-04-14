@@ -13,14 +13,12 @@ namespace Math
 		Vector3(float _x, float _y, float _z);
 
 		// Operator
-		Vector3 operator +(const Vector3& _vector);
-		Vector3 operator -(const Vector3& _vector);
-		Vector3 operator *(const float _scalar);
-		Vector3 operator /(const float _scalar);
-		Vector3& operator *=(const float _scalar);
-		Vector3& operator /=(const float _scalar);
-		friend Vector3 operator *(const float _scalar, const Vector3& _vector);
-		friend Vector3 operator /(const float _scalar, const Vector3& _vector);
+		auto operator +(const Vector3& _vector) const -> Vector3;
+		auto operator -(const Vector3& _vector) const -> Vector3;
+		auto operator *(const float _scalar) const -> Vector3;
+		auto operator /(const float _scalar) const -> Vector3;
+		auto operator *=(const float _scalar) -> Vector3&;
+		auto operator /=(const float _scalar) -> Vector3&;
 
 		float LengthSquared();
 		float Length();

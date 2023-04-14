@@ -16,12 +16,12 @@ namespace Math
 		auto operator -(const Vector2& _vector) const -> Vector2;
 		auto operator *(const float _scalar) const -> Vector2;
 		auto operator /(const float _scalar) const -> Vector2;
-        Vector2 &operator*=(const float _scalar);
-        Vector2& operator /=(const float _scalar);
+        auto operator *=(const float _scalar) -> Vector2&;
+        auto operator /=(const float _scalar) -> Vector2&;
 
-		float LengthSquared();
 		auto Length() const -> float;
-		float Dot(const Vector2& vector);
+		auto LengthSquared() const -> float;
+		auto Dot(const Vector2& vector) const -> float;
 		void Normalize();
 	};
 }

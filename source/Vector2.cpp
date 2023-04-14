@@ -53,15 +53,15 @@ auto Vector2::operator/=(const float _scalar) -> Vector2&
 
 auto Math::Vector2::Length() const -> float
 {
-    return sqrt(x * x + y * y);
+    return sqrtf(x * x + y * y);
 }
 
-float Vector2::LengthSquared()
+auto Vector2::LengthSquared() const -> float
 {
 	return this->x * this->x + this->y * this->y;
 }
 
-float Vector2::Dot(const Vector2& _vector)
+auto Vector2::Dot(const Vector2& _vector) const -> float
 {
 	return (this->x * _vector.x) + (this->y * _vector.y);
 }
