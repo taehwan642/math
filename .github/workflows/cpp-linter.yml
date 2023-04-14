@@ -15,7 +15,7 @@ jobs:
         with:
           style: file
           files-changed-only: false
-          extra-args: "-xc++ -std=c++17 -I${{github.workspace}}/header"
+          extra-args: "-- -xc++ -std=c++17 -I${{github.workspace}}/header"
 
       - name: Fail
         if: steps.linter.outputs.checks-failed != 0
