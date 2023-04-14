@@ -1,4 +1,3 @@
 # math
 
-## Vector3
-## Vector2
+[![cpp-linter](https://github.com/taehwan642/math/actions/workflows/cpp-linter.yml/badge.svg)](https://github.com/taehwan642/math/actions/workflows/cpp-linter.yml)

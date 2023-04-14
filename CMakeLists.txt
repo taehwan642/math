@@ -6,6 +6,6 @@ file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
 
 add_library(${LIBRARY_NAME} STATIC ${SRC_FILES})
 
-target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/includes)
+target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/header)
 
-target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Werror)
+target_compile_options(${LIBRARY_NAME} PRIVATE -Wall)

@@ -1,0 +1,23 @@
+name: cpp-linter
+
+on: [pull_request]
+
+jobs:
+  cpp-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cpp-linter/cpp-linter-action@main
+        id: linter
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          style: Google
+          files-changed-only: false
+          extra-args: "-xc++ -std=c++17 -I${{github.workspace}}/header"
+
+      - name: Fail
+        if: steps.linter.outputs.checks-failed != 0
+        run: |
+          echo "some linter checks failed. ${{ steps.linter.outputs.checks-failed }}"
