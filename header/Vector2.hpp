@@ -22,6 +22,7 @@ namespace Math
 		[[nodiscard]] auto Length() const -> float;
 		[[nodiscard]] auto LengthSquared() const -> float;
 		[[nodiscard]] auto Dot(const Vector2& vector) const -> float;
+		
 		void Normalize();
 	};
 }

@@ -20,10 +20,11 @@ namespace Math
 		auto operator *=(float _scalar) -> Vector3&;
 		auto operator /=(float _scalar) -> Vector3&;
 
-		auto LengthSquared() const -> float;
-		auto Length() const -> float;
-		auto Dot(const Vector3& _vector) const -> float;
+		[[nodiscard]] auto LengthSquared() const -> float;
+		[[nodiscard]] auto Length() const -> float;
+		[[nodiscard]] auto Dot(const Vector3& _vector) const -> float;
+
 		void Normalize();
-		auto Cross(const Vector3& _vector) const -> Vector3;
+		[[nodiscard]] auto Cross(const Vector3& _vector) const -> Vector3;
 	};
 }
