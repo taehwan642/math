@@ -53,17 +53,17 @@ auto Vector3::operator/=(const float _scalar) -> Vector3&
 	return *this;
 }
 
-float Math::Vector3::Length()
+auto Math::Vector3::Length() const -> float
 {
-    return sqrt(x * x + y * y + z * z);
+    return sqrtf(x * x + y * y + z * z);
 }
 
-float Vector3::LengthSquared()
+auto Vector3::LengthSquared() const -> float
 {
 	return this->x * this->x + this->y * this->y + this->z * this->z;
 }
 
-float Vector3::Dot(const Vector3& _vector)
+auto Vector3::Dot(const Vector3& _vector) const -> float
 {
 	return (this->x * _vector.x) + (this->y * _vector.y) + (this->z + _vector.z);
 }
@@ -73,7 +73,7 @@ void Vector3::Normalize()
 	*this /= LengthSquared();
 }
 
-Vector3 Vector3::Cross(const Vector3& _vector)
+auto Vector3::Cross(const Vector3& _vector) const -> Vector3
 {
 	float x = (this->y * _vector.z) - (this->z * _vector.y);
 	float y = (this->z * _vector.x) - (this->x * _vector.z);
