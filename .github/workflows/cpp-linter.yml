@@ -7,17 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: cpp-linter/cpp-linter-action@main
+      - name: Install clang
+        run: sudo apt install clang-11 --install-suggests
+      - uses: cpp-linter/cpp-linter-action@master
         id: linter
-        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           style: Google
-          files-changed-only: false
-          extra-args: "-xc++ -std=c++17 -I${{github.workspace}}/header"
-
-      - name: Fail
-        if: steps.linter.outputs.checks-failed != 0
-        run: |
-          echo "some linter checks failed. ${{ steps.linter.outputs.checks-failed }}"
+          version: 11
+          files-changed-only: true
+          lines-changed-only: true
+          extensions: 'c,h,C,H,cpp,hpp,cc,hh,c++,h++,cxx,hxx'
+          tidy-checks: 'boost-*,bugprone-*,performance-*,readability-*,portability-*,modernize-*,clang-analyzer-*,cppcoreguidelines-*'
+      - name: Fail fast?!
+        if: steps.linter.outputs.checks-failed > 0
+        run: exit 1
