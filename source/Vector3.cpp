@@ -17,12 +17,12 @@ Vector3::Vector3(float _x, float _y, float _z)
 	this->z = _z;
 }
 
-auto Vector3::operator+(const Vector3& _vector) const -> Vector3
+auto Vector3::operator+(const Vector3 &_vector) const -> Vector3
 {
 	return Vector3(this->x + _vector.x, this->y + _vector.y, this->z + _vector.z);
 }
 
-auto Vector3::operator-(const Vector3& _vector) const -> Vector3
+auto Vector3::operator-(const Vector3 &_vector) const -> Vector3
 {
 	return Vector3(this->x - _vector.x, this->y - _vector.y, this->z - _vector.z);
 }
@@ -37,7 +37,7 @@ auto Vector3::operator/(float _scalar) const -> Vector3
 	return Vector3(this->x / _scalar, this->y / _scalar, this->z / _scalar);
 }
 
-auto Vector3::operator*=(float _scalar) -> Vector3&
+auto Vector3::operator*=(float _scalar) -> Vector3 &
 {
 	this->x *= _scalar;
 	this->y *= _scalar;
@@ -45,7 +45,7 @@ auto Vector3::operator*=(float _scalar) -> Vector3&
 	return *this;
 }
 
-auto Vector3::operator/=(float _scalar) -> Vector3&
+auto Vector3::operator/=(float _scalar) -> Vector3 &
 {
 	this->x /= _scalar;
 	this->y /= _scalar;
@@ -55,7 +55,7 @@ auto Vector3::operator/=(float _scalar) -> Vector3&
 
 auto Math::Vector3::Length() const -> float
 {
-    return sqrtf(x * x + y * y + z * z);
+	return sqrtf(x * x + y * y + z * z);
 }
 
 auto Vector3::LengthSquared() const -> float
@@ -63,7 +63,7 @@ auto Vector3::LengthSquared() const -> float
 	return this->x * this->x + this->y * this->y + this->z * this->z;
 }
 
-auto Vector3::Dot(const Vector3& _vector) const -> float
+auto Vector3::Dot(const Vector3 &_vector) const -> float
 {
 	return (this->x * _vector.x) + (this->y * _vector.y) + (this->z + _vector.z);
 }
@@ -73,7 +73,7 @@ void Vector3::Normalize()
 	*this /= LengthSquared();
 }
 
-auto Vector3::Cross(const Vector3& _vector) const -> Vector3
+auto Vector3::Cross(const Vector3 &_vector) const -> Vector3
 {
 	float x = (this->y * _vector.z) - (this->z * _vector.y);
 	float y = (this->z * _vector.x) - (this->x * _vector.z);
