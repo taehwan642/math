@@ -5,9 +5,9 @@ namespace Math
 	class Vector3
 	{
 	public:
-		float x = 0.0F;
-		float y = 0.0F;
-		float z = 0.0F;
+		float x_ = 0.0F;
+		float y_ = 0.0F;
+		float z_ = 0.0F;
 
 		Vector3();
 		Vector3(float _x, float _y, float _z);
