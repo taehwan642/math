@@ -1,73 +1,55 @@
 #include "Vector2.hpp"
+
 #include <cmath>
 
-using namespace Math;
+using namespace math;
 
-Vector2::Vector2()
-{
-	x = 0;
-	y = 0;
+Vector2::Vector2() {
+  x_ = 0;
+  y_ = 0;
 }
 
-Vector2::Vector2(float x, float y)
-{
-	this->x = x;
-	this->y = y;
+Vector2::Vector2(float x, float y) {
+  x_ = x;
+  y_ = y;
 }
 
-Vector2 Vector2::operator+(const Vector2& _vector)
-{
-	return Vector2(this->x + _vector.x, this->y + _vector.y);
+auto Vector2::operator+(const Vector2 &vector) const -> Vector2 {
+  return Vector2(x_ + vector.x_, y_ + vector.y_);
 }
 
-Vector2 Vector2::operator-(const Vector2& _vector)
-{
-	return Vector2(this->x - _vector.x, this->y - _vector.y);
+auto Vector2::operator-(const Vector2 &vector) const -> Vector2 {
+  return Vector2(x_ - vector.x_, y_ - vector.y_);
 }
 
-Vector2 Vector2::operator*(const float _scalar)
-{
-	return Vector2(this->x * _scalar, this->y * _scalar);
+auto Vector2::operator*(float scalar) const -> Vector2 {
+  return Vector2(x_ * scalar, y_ * scalar);
 }
 
-Vector2 Vector2::operator/(const float _scalar)
-{
-	return Vector2(this->x / _scalar, this->y / _scalar);
+auto Vector2::operator/(float scalar) const -> Vector2 {
+  return Vector2(x_ / scalar, y_ / scalar);
 }
 
-Vector2& Vector2::operator*=(const float _scalar)
-{
-	this->x *= _scalar;
-	this->y *= _scalar;
+auto Vector2::operator*=(float scalar) -> Vector2 & {
+  x_ *= scalar;
+  y_ *= scalar;
 
-	return *this;
+  return *this;
 }
 
-Vector2& Vector2::operator/=(const float _scalar)
-{
-	this->x /= _scalar;
-	this->y /= _scalar;
+auto Vector2::operator/=(float scalar) -> Vector2 & {
+  x_ /= scalar;
+  y_ /= scalar;
 
-	return *this;
+  return *this;
 }
 
-float Math::Vector2::Length()
-{
-    return sqrt(x * x + y * y);
+auto Vector2::Length() const -> float { return sqrtf(LengthSquared()); }
+
+auto Vector2::LengthSquared() const -> float { return x_ * x_ + y_ * y_; }
+
+auto Vector2::Dot(const Vector2 &vector) const -> float {
+  return (x_ * vector.x_) + (y_ * vector.y_);
 }
 
-float Vector2::LengthSquared()
-{
-	return this->x * this->x + this->y * this->y;
-}
-
-float Vector2::Dot(const Vector2& _vector)
-{
-	return (this->x * _vector.x) + (this->y * _vector.y);
-}
-
-void Vector2::Normalize()
-{
-	*this /= LengthSquared();
-}
-
+void Vector2::Normalize() { *this /= Length(); }

@@ -1,31 +1,28 @@
 #pragma once
 
-namespace Math
-{
-	class Vector3
-	{
-	public:
-		float x = 0.0f;
-		float y = 0.0f;
-		float z = 0.0f;
+namespace math {
+class Vector3 {
+ public:
+  float x_ = 0.0F;
+  float y_ = 0.0F;
+  float z_ = 0.0F;
 
-		Vector3();
-		Vector3(float _x, float _y, float _z);
+  Vector3();
+  Vector3(float x, float y, float z);
 
-		// Operator
-		Vector3 operator +(const Vector3& _vector);
-		Vector3 operator -(const Vector3& _vector);
-		Vector3 operator *(const float _scalar);
-		Vector3 operator /(const float _scalar);
-		Vector3& operator *=(const float _scalar);
-		Vector3& operator /=(const float _scalar);
-		friend Vector3 operator *(const float _scalar, const Vector3& _vector);
-		friend Vector3 operator /(const float _scalar, const Vector3& _vector);
+  // Operator
+  auto operator+(const Vector3 &vector) const -> Vector3;
+  auto operator-(const Vector3 &vector) const -> Vector3;
+  auto operator*(float scalar) const -> Vector3;
+  auto operator/(float scalar) const -> Vector3;
+  auto operator*=(float scalar) -> Vector3 &;
+  auto operator/=(float scalar) -> Vector3 &;
 
-		float LengthSquared();
-		float Length();
-		float Dot(const Vector3& _vector);
-		void Normalize();
-		Vector3 Cross(const Vector3& _vector);
-	};
-}
+  [[nodiscard]] auto LengthSquared() const -> float;
+  [[nodiscard]] auto Length() const -> float;
+  [[nodiscard]] auto Dot(const Vector3 &vector) const -> float;
+
+  void Normalize();
+  [[nodiscard]] auto Cross(const Vector3 &vector) const -> Vector3;
+};
+}  // namespace math

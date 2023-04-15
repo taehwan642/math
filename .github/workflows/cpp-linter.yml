@@ -14,10 +14,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           style: Google
-          files-changed-only: false
+          thread-comments: true
           extra-args: "-xc++ -std=c++17 -I${{github.workspace}}/header"
 
       - name: Fail
         if: steps.linter.outputs.checks-failed != 0
         run: |
           echo "some linter checks failed. ${{ steps.linter.outputs.checks-failed }}"
+          exit 1

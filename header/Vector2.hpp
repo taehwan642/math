@@ -1,27 +1,26 @@
 #pragma once
 
-namespace Math
-{
-	class Vector2
-	{
-	private:
-	public:
-		float x = 0;
-		float y = 0;
+namespace math {
+class Vector2 {
+ private:
+ public:
+  float x_ = 0;
+  float y_ = 0;
 
-		Vector2();
-		Vector2(float x, float y);
+  Vector2();
+  Vector2(float x, float y);
 
-		Vector2 operator +(const Vector2& _vector);
-		Vector2 operator -(const Vector2& _vector);
-		Vector2 operator *(const float _scalar);
-		Vector2 operator /(const float _scalar);
-		Vector2& operator *=(const float _scalar);
-		Vector2& operator /=(const float _scalar);
+  auto operator+(const Vector2 &vector) const -> Vector2;
+  auto operator-(const Vector2 &vector) const -> Vector2;
+  auto operator*(float scalar) const -> Vector2;
+  auto operator/(float scalar) const -> Vector2;
+  auto operator*=(float scalar) -> Vector2 &;
+  auto operator/=(float scalar) -> Vector2 &;
 
-		float LengthSquared();
-		float Length();
-		float Dot(const Vector2& vector);
-		void Normalize();
-	};
-}
+  [[nodiscard]] auto Length() const -> float;
+  [[nodiscard]] auto LengthSquared() const -> float;
+  [[nodiscard]] auto Dot(const Vector2 &vector) const -> float;
+
+  void Normalize();
+};
+}  // namespace math
