@@ -1,82 +1,82 @@
 #include "Vector3.hpp"
 #include <cmath>
 
-using namespace Math;
+using namespace math;
 
 Vector3::Vector3()
 {
-	this->x_ = 0.0F;
-	this->y_ = 0.0F;
-	this->z_ = 0.0F;
+	x_ = 0.0F;
+	y_ = 0.0F;
+	z_ = 0.0F;
 }
 
-Vector3::Vector3(float _x, float _y, float _z)
+Vector3::Vector3(float x, float y, float z)
 {
-	this->x_ = _x;
-	this->y_ = _y;
-	this->z_ = _z;
+	x_ = x;
+	y_ = y;
+	z_ = z;
 }
 
-auto Vector3::operator+(const Vector3 &_vector) const -> Vector3
+auto Vector3::operator+(const Vector3 &vector) const -> Vector3
 {
-	return Vector3(this->x_ + _vector.x_, this->y_ + _vector.y_, this->z_ + _vector.z_);
+	return Vector3(x_ + vector.x_, y_ + vector.y_, z_ + vector.z_);
 }
 
-auto Vector3::operator-(const Vector3 &_vector) const -> Vector3
+auto Vector3::operator-(const Vector3 &vector) const -> Vector3
 {
-	return Vector3(this->x_ - _vector.x_, this->y_ - _vector.y_, this->z_ - _vector.z_);
+	return Vector3(x_ - vector.x_, y_ - vector.y_, z_ - vector.z_);
 }
 
-auto Vector3::operator*(float _scalar) const -> Vector3
+auto Vector3::operator*(float scalar) const -> Vector3
 {
-	return Vector3(this->x_ * _scalar, this->y_ * _scalar, this->z_ * _scalar);
+	return Vector3(x_ * scalar, y_ * scalar, z_ * scalar);
 }
 
-auto Vector3::operator/(float _scalar) const -> Vector3
+auto Vector3::operator/(float scalar) const -> Vector3
 {
-	return Vector3(this->x_ / _scalar, this->y_ / _scalar, this->z_ / _scalar);
+	return Vector3(x_ / scalar, y_ / scalar, z_ / scalar);
 }
 
-auto Vector3::operator*=(float _scalar) -> Vector3 &
+auto Vector3::operator*=(float scalar) -> Vector3 &
 {
-	this->x_ *= _scalar;
-	this->y_ *= _scalar;
-	this->z_ *= _scalar;
+	x_ *= scalar;
+	y_ *= scalar;
+	z_ *= scalar;
 	return *this;
 }
 
-auto Vector3::operator/=(float _scalar) -> Vector3 &
+auto Vector3::operator/=(float scalar) -> Vector3 &
 {
-	this->x_ /= _scalar;
-	this->y_ /= _scalar;
-	this->z_ /= _scalar;
+	x_ /= scalar;
+	y_ /= scalar;
+	z_ /= scalar;
 	return *this;
 }
 
-auto Math::Vector3::Length() const -> float
+auto Vector3::Length() const -> float
 {
-	return sqrtf(x_ * x_ + y_ * y_ + z_ * z_);
+	return sqrtf(LengthSquared());
 }
 
 auto Vector3::LengthSquared() const -> float
 {
-	return this->x_ * this->x_ + this->y_ * this->y_ + this->z_ * this->z_;
+	return x_ * x_ + y_ * y_ + z_ * z_;
 }
 
-auto Vector3::Dot(const Vector3 &_vector) const -> float
+auto Vector3::Dot(const Vector3 &vector) const -> float
 {
-	return (this->x_ * _vector.x_) + (this->y_ * _vector.y_) + (this->z_ + _vector.z_);
+	return (x_ * vector.x_) + (y_ * vector.y_) + (z_ + vector.z_);
 }
 
 void Vector3::Normalize()
 {
-	*this /= LengthSquared();
+	*this /= Length();
 }
 
-auto Vector3::Cross(const Vector3 &_vector) const -> Vector3
+auto Vector3::Cross(const Vector3 &vector) const -> Vector3
 {
-	float x = (this->y_ * _vector.z_) - (this->z_ * _vector.y_);
-	float y = (this->z_ * _vector.x_) - (this->x_ * _vector.z_);
-	float z = (this->x_ * _vector.y_) - (this->y_ * _vector.x_);
+	float x = (y_ * vector.z_) - (z_ * vector.y_);
+	float y = (z_ * vector.x_) - (x_ * vector.z_);
+	float z = (x_ * vector.y_) - (y_ * vector.x_);
 	return Vector3(x, y, z);
 }

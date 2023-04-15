@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Math
+namespace math
 {
 	class Vector3
 	{
@@ -10,21 +10,21 @@ namespace Math
 		float z_ = 0.0F;
 
 		Vector3();
-		Vector3(float _x, float _y, float _z);
+		Vector3(float x, float y, float z);
 
 		// Operator
-		auto operator+(const Vector3 &_vector) const -> Vector3;
-		auto operator-(const Vector3 &_vector) const -> Vector3;
-		auto operator*(float _scalar) const -> Vector3;
-		auto operator/(float _scalar) const -> Vector3;
-		auto operator*=(float _scalar) -> Vector3 &;
-		auto operator/=(float _scalar) -> Vector3 &;
+		auto operator+(const Vector3 &vector) const -> Vector3;
+		auto operator-(const Vector3 &vector) const -> Vector3;
+		auto operator*(float scalar) const -> Vector3;
+		auto operator/(float scalar) const -> Vector3;
+		auto operator*=(float scalar) -> Vector3 &;
+		auto operator/=(float scalar) -> Vector3 &;
 
 		[[nodiscard]] auto LengthSquared() const -> float;
 		[[nodiscard]] auto Length() const -> float;
-		[[nodiscard]] auto Dot(const Vector3 &_vector) const -> float;
+		[[nodiscard]] auto Dot(const Vector3 &vector) const -> float;
 
 		void Normalize();
-		[[nodiscard]] auto Cross(const Vector3 &_vector) const -> Vector3;
+		[[nodiscard]] auto Cross(const Vector3 &vector) const -> Vector3;
 	};
 }
