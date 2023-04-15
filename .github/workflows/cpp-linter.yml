@@ -14,7 +14,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           style: Google
-          extra-args: "--dry-run -Werror -xc++ -std=c++17 -I${{github.workspace}}/header"
+          thread-comments: true
+          extra-args: "-xc++ -std=c++17 -I${{github.workspace}}/header"
 
       - name: Fail
         if: steps.linter.outputs.checks-failed != 0
