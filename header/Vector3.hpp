@@ -1,6 +1,8 @@
 #pragma once
 
 namespace math {
+class Matrix4x4;
+
 class Vector3 {
  public:
   float x_ = 0.0F;
@@ -17,6 +19,7 @@ class Vector3 {
   auto operator/(float scalar) const -> Vector3;
   auto operator*=(float scalar) -> Vector3 &;
   auto operator/=(float scalar) -> Vector3 &;
+  Vector3 operator*(Matrix4x4 *matrix);
 
   [[nodiscard]] auto LengthSquared() const -> float;
   [[nodiscard]] auto Length() const -> float;

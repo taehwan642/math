@@ -2,6 +2,8 @@
 
 #include <cmath>
 
+#include "Matrix4x4.hpp"
+
 using namespace math;
 
 Vector3::Vector3() {
@@ -45,6 +47,8 @@ auto Vector3::operator/=(float scalar) -> Vector3 & {
   z_ /= scalar;
   return *this;
 }
+
+Vector3 math::Vector3::operator*(Matrix4x4 *matrix) { return Vector3(); }
 
 auto Vector3::Length() const -> float { return sqrtf(LengthSquared()); }
 
