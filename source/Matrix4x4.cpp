@@ -178,6 +178,19 @@ Matrix4x4 math::Matrix4x4::CreateTranslationMatrix(const Vector3& translation) {
   return result;
 }
 
+Matrix4x4 math::Matrix4x4::CreatePerspectiveMatrix(float fov, float aspect,
+                                                   float nearPlane,
+                                                   float farPlane) {
+  Matrix4x4 result = Matrix4x4();
+  float tanHalfFov = std::tan(fov / 2);
+  result.element[0][0] = 1 / (aspect * tanHalfFov);
+  result.element[1][1] = 1 / tanHalfFov;
+  result.element[2][2] = -(farPlane + nearPlane) / (farPlane - nearPlane);
+  result.element[2][3] = -1;
+  result.element[3][2] = -(2 * farPlane * nearPlane) / (farPlane - nearPlane);
+  return result;
+}
+
 const char* math::Matrix4x4::ToString() const {
   std::cout << "row 0 : " << element[0][0] << " " << element[0][1] << " "
             << element[0][2] << " " << element[0][3] << std::endl;

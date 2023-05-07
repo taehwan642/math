@@ -22,6 +22,8 @@ class Matrix4x4 {
   static Matrix4x4 CreateRotationYawPitchRollMatrix(const Vector3& rotation);
   static Matrix4x4 CreateScaleMatrix(const Vector3& scale);
   static Matrix4x4 CreateTranslationMatrix(const Vector3& translation);
+  static Matrix4x4 CreatePerspectiveMatrix(float fov, float aspect,
+                                           float nearPlane, float farPlane);
 
   const char* ToString() const;
 };
