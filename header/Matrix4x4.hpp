@@ -22,5 +22,7 @@ class Matrix4x4 {
   static Matrix4x4 CreateRotationYawPitchRollMatrix(const Vector3& rotation);
   static Matrix4x4 CreateScaleMatrix(const Vector3& scale);
   static Matrix4x4 CreateTranslationMatrix(const Vector3& translation);
+
+  const char* ToString() const;
 };
 }  // namespace math
