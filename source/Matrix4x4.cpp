@@ -145,7 +145,12 @@ Matrix4x4 math::Matrix4x4::CreateRotationYawMatrix(float yaw) {
 }
 
 Matrix4x4 math::Matrix4x4::CreateRotationPitchMatrix(float pitch) {
-  return Matrix4x4();
+  Matrix4x4 result = CreateIdentityMatrix();
+  result.element[1][1] = std::cos(pitch);
+  result.element[1][2] = std::sin(pitch);
+  result.element[2][1] = -std::sin(pitch);
+  result.element[2][2] = std::cos(pitch);
+  return result;
 }
 
 Matrix4x4 math::Matrix4x4::CreateRotationRollMatrix(float roll) {
@@ -159,7 +164,11 @@ Matrix4x4 math::Matrix4x4::CreateRotationRollMatrix(float roll) {
 
 Matrix4x4 math::Matrix4x4::CreateRotationYawPitchRollMatrix(
     const Vector3& rotation) {
-  return Matrix4x4();
+  Matrix4x4 result = CreateIdentityMatrix();
+  result = result * CreateRotationYawMatrix(rotation.x_);
+  result = result * CreateRotationPitchMatrix(rotation.y_);
+  result = result * CreateRotationRollMatrix(rotation.z_);
+  return result;
 }
 
 Matrix4x4 math::Matrix4x4::CreateScaleMatrix(const Vector3& scale) {
